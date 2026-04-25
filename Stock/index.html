@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock – Morita Store</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="../img/logo.png" alt="Morita Store">
+        <h2>Morita Store</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="../inicio/index.html"      class="nav-link"><span class="nav-icon">🏠</span> Inicio</a>
+        <a href="../productos/index.html"   class="nav-link"><span class="nav-icon">📦</span> Productos</a>
+        <a href="../movimientos/index.html" class="nav-link"><span class="nav-icon">🔄</span> Movimientos</a>
+        <a href="../stock/index.html"       class="nav-link"><span class="nav-icon">📊</span> Stock</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h1>Stock</h1>
+        <p>Consulta el inventario actual por producto</p>
+      </div>
+
+      <!-- Filtros -->
+      <div class="card filtros-card">
+        <div class="filtros-row">
+          <div class="search-box">
+            <input type="text" id="buscarStock"
+                   placeholder="Buscar por código, nombre o categoría..."
+                   oninput="buscarEnStock()">
+          </div>
+          <select id="filtroGrupo" onchange="buscarEnStock()">
+            <option value="">Todas las categorías</option>
+            <option value="General">General</option>
+            <option value="Milagros">Milagros</option>
+            <option value="Anyeluz">Anyeluz</option>
+            <option value="Click Hair">Click Hair</option>
+          </select>
+          <select id="filtroEstado" onchange="buscarEnStock()">
+            <option value="">Todos los estados</option>
+            <option value="normal">Normal</option>
+            <option value="bajo">Stock Bajo</option>
+            <option value="sin">Sin Stock</option>
+          </select>
+          <button class="btn btn-secondary btn-sm" onclick="cargarStock()">🔄 Actualizar</button>
+        </div>
+      </div>
+
+      <!-- Tabla -->
+      <div class="card" style="padding: 0; overflow: hidden;">
+        <div id="loadingStock" class="loading">Cargando stock...</div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Unidad</th>
+                <th>Categoría</th>
+                <th>Stock Mín.</th>
+                <th>Stock Actual</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="tablaStockBody">
+              <tr>
+                <td colspan="7">
+                  <div class="empty-state">
+                    <div class="empty-state-icon">📦</div>
+                    <h3>Cargando información...</h3>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../shared.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio – Morita Store</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="../img/logo.png" alt="Morita Store">
+        <h2>Morita Store</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="../inicio/index.html"      class="nav-link"><span class="nav-icon">🏠</span> Inicio</a>
+        <a href="../productos/index.html"   class="nav-link"><span class="nav-icon">📦</span> Productos</a>
+        <a href="../movimientos/index.html" class="nav-link"><span class="nav-icon">🔄</span> Movimientos</a>
+        <a href="../stock/index.html"       class="nav-link"><span class="nav-icon">📊</span> Stock</a>
+      </nav>
+    </aside>
+
+    <!-- CONTENIDO -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1>Dashboard</h1>
+        <p>Resumen general del inventario</p>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-grid">
+        <div class="stat-card stat-blue">
+          <div class="stat-icon">📦</div>
+          <div class="stat-info">
+            <div class="stat-value" id="statTotalProductos">—</div>
+            <div class="stat-label">Total Productos</div>
+          </div>
+        </div>
+        <div class="stat-card stat-green">
+          <div class="stat-icon">🔄</div>
+          <div class="stat-info">
+            <div class="stat-value" id="statTotalMovimientos">—</div>
+            <div class="stat-label">Total Movimientos</div>
+          </div>
+        </div>
+        <div class="stat-card stat-orange">
+          <div class="stat-icon">⚠️</div>
+          <div class="stat-info">
+            <div class="stat-value" id="statStockBajo">—</div>
+            <div class="stat-label">Stock Bajo</div>
+          </div>
+        </div>
+        <div class="stat-card stat-red">
+          <div class="stat-icon">❌</div>
+          <div class="stat-info">
+            <div class="stat-value" id="statSinStock">—</div>
+            <div class="stat-label">Sin Stock</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCIONES RÁPIDAS -->
+      <div class="card">
+        <h2 class="card-title">Acciones Rápidas</h2>
+        <div class="quick-actions">
+          <a href="../productos/index.html"   class="quick-btn">➕ Nuevo Producto</a>
+          <a href="../movimientos/index.html" class="quick-btn">🔄 Registrar Movimiento</a>
+          <a href="../stock/index.html"       class="quick-btn">📊 Ver Stock</a>
+          <button class="quick-btn" onclick="exportarInventario()">📥 Exportar</button>
+        </div>
+      </div>
+
+      <!-- ALERTAS DE STOCK -->
+      <div class="card" id="cardAlertas" style="display:none">
+        <h2 class="card-title">⚠️ Productos que requieren atención</h2>
+        <div id="listaAlertas"></div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../shared.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

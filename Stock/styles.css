@@ -1,0 +1,32 @@
+/* ===== STOCK ===== */
+
+.filtros-card { padding: 16px 20px; margin-bottom: 16px; }
+
+.filtros-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filtros-row .search-box {
+  flex: 1;
+  min-width: 200px;
+  margin: 0;
+}
+
+.filtros-row select {
+  padding: 10px 13px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--gray-700);
+  background: white;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.filtros-row select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
