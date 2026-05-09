@@ -11,24 +11,12 @@ function cargarStock() {
   loading.style.display = 'block';
   tbody.innerHTML = '';
 
-  google.script.run
-    .withSuccessHandler(stock => {
-      loading.style.display = 'none';
-      stockData = stock;
-      renderStock(stock);
-    })
-    .withFailureHandler(err => {
-      loading.style.display = 'none';
-      tbody.innerHTML = `
-        <tr><td colspan="7">
-          <div class="empty-state">
-            <div class="empty-state-icon">❌</div>
-            <h3>Error al cargar stock</h3>
-            <p>${err.message}</p>
-          </div>
-        </td></tr>`;
-    })
-    .obtenerStock();
+  // Leer productos desde localStorage
+  const productos = JSON.parse(localStorage.getItem('productos') || '[]');
+
+  loading.style.display = 'none';
+  stockData = productos;
+  renderStock(productos);
 }
 
 function renderStock(stock) {
